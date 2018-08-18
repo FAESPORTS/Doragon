@@ -1,23 +1,20 @@
 @extends('layouts.app')
 
+@section('styles')
+    <link href="{{ asset('css/home.css') }}" rel="stylesheet" type="text/css">
+    @endsection
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+        @include('home.slider')
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        <div class="container">
+            @include('home.news')
 
-                    You are logged in!
-                </div>
-            </div>
+            <h1>Hola</h1>
         </div>
-    </div>
-</div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="{{ asset('js/jssor.slider.min.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('js/home.js') }}" defer></script>
 @endsection
